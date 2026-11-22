@@ -2,7 +2,7 @@
 
 **Student ID: G00467054 **  
 **Examination group:** A (Room Booking)  
-**Original examination pull-request URL (`exam-work`):**  
+**Original examination pull-request URL (`exam-work`): https://github.com/LowRands/G00467054Week7TestCICD/pull/1 **  
 **New review repository URL:**
 
 ## 1. My original examination self-assessment
@@ -51,40 +51,58 @@ Use Swagger UI or another HTTP client. For **at least four meaningful checks**, 
 
 **Test 1 — successful booking request:**
 - Request / input:
-- Expected:
-- Actual HTTP status / body:
-- Pass / fail:
+- name "Ethan"
+- roomID "1"
+- attendees "2"
+
+- Expected: status = "Active", RoomName = "Lab 201"
+- Actual HTTP status / body: 201/Created. Status = "Active", RoomName = "Lab 201"
+- Pass / fail: Pass
 
 **Test 2 — invalid input or excessive attendee count:**
 - Request / input:
-- Expected:
-- Actual HTTP status / body:
-- Pass / fail:
+- name "Ethan"
+- roomID "1"
+- attendees "25"
+
+- Expected: Error 
+- Actual HTTP status / body: 409 Error
+- Pass / fail: Pass
 
 **Test 3 — missing booking or room:**
-- Request / input:
-- Expected:
-- Actual HTTP status / body:
-- Pass / fail:
+- Request / input: BookingID = "2"
+- Expected: Error, as BookingID = "2", doesn't exist
+- Actual HTTP status / body: 404 Error, not found
+- Pass / fail: Pass
 
 **Test 4 — requirement specific to my group:**
-- Request / input:
-- Expected:
-- Actual HTTP status / body:
-- Pass / fail:
+- Request / input: (Bookings/search) roomName = "Lab 201"
+- Expected: 
+- attendees = "23"
+- status: "ACTIVE"
+- (next booking)
+- attendees = "2"
+- status = "Active"
+- Actual HTTP status / body: 200, Found 
+- Pass / fail: Pass
 
 **Group A:** Demonstrate `GET /api/bookings/search?roomName=...` using an exact room name, bookings ordered by attendee count descending, and an empty list for no matches. Add checks if necessary to show all three behaviours.
 
-**Group B:** Run the **provided** Room Service separately on port 8082 and the **new** Booking Service on port 8081. Demonstrate that booking creation obtains room details through OpenFeign and that booking retrieval uses the local Booking database. Do not modify the Room Service.
-
 ## 4. Reflection
 
-**What did I understand during the examination but struggle to implement?**
+**I understood the assignment and what I had to do, I struggled with time and because I coded something wrong in my bookingcontroller
+and it broke and wouldn't appear on swagger. I couldn't find my error until after the exam**
 
 **Which Spring Boot, JPA, validation, JPQL or OpenFeign concept became clearer after correcting my code? Give a specific example.**
+- " @ManyToOne(optional = false, fetch = FetchType.LAZY)" 
+- allows many bookings for each room
+- "optional = false" the field can't be null
+- "FetchType.Lazy" only loads from database when requested, avoids extra queries
 
 **What will I do differently in my next coding test or API development task?**
-
+- I would run my code more often and if I get an error and swagger doesn't work, I only have to back track a few lines of code
+- I would read the requirements on the test sheet and break it down into a checklist and go through each task
+- I would revise core patterns before the exam such as @Entity with @ManyToOne, DTOs with @NotBlank, @Size, @Positive
 ## Review lab assessment — 20 marks
 
 - Honest original self-assessment with code evidence: **4 marks**
