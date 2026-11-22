@@ -29,7 +29,7 @@ Review the code **as submitted in the original examination**. Do not change the 
 **Evidence from the original code:**
 - Wasn't able to run it on swagger, let alone search by room IDs, the amount of people in the bookings
 
-**Total self-assessed original examination mark: /100**
+**Total self-assessed original examination mark: 40/100**
 
 **Checkpoint:** Commit this completed self-assessment as the **first review commit in your new repository**, before you modify or add application code. The lecturer decides the official original examination mark.
 
