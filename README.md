@@ -3,7 +3,7 @@
 **Student ID: G00467054 **  
 **Examination group:** A (Room Booking)  
 **Original examination pull-request URL (`exam-work`): https://github.com/LowRands/G00467054Week7TestCICD/pull/1 **  
-**New review repository URL:**
+**New review repository URL: https://github.com/LowRands/CICD-Test-Review **
 
 ## 1. My original examination self-assessment
 
